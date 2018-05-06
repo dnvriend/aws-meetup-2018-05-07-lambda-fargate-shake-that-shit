@@ -17,7 +17,8 @@ import scala.util.Try
 @AmazonS3FullAccess
 @S3Conf(
   bucketResourceName = "MeetupVideo",
-  events = Array("s3:ObjectCreated:*")
+  events = Array("s3:ObjectCreated:*"),
+  reservedConcurrentExecutions = 1
 )
 class BucketHandler extends S3EventHandler {
   final val ClusterName = "shake-that-shit"
